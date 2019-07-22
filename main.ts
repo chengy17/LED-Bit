@@ -327,10 +327,95 @@ namespace LEDBit {
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
 
-    //% blockId=LEDBit_LEDShow block="LED expression Show|%index"
+    //% blockId=ledbit_led_show block="LED expression Show|%index"
     //% weight=99
     export function LEDShow(index: enExpression): void {
-        
+        if (!initMatrix) {
+            matrixInit();
+            initMatrix = true;
+        }
+        switch (index) {
+            case enExpression.FACE1: {
+                smile[0] = smile1[0];
+                for (let i = 1; i < 17; i += 2) {
+                    smile[i] = smile1[i + 1];
+                    smile[i + 1] = smile1[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, smile);
+                break;
+            }
+            case enExpression.FACE2: {
+                //statements; 
+                grin[0] = grin1[0];
+                for (let i = 1; i < 17; i += 2) {
+                    grin[i] = grin1[i + 1];
+                    grin[i + 1] = grin1[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, grin);
+                break;
+            }
+            case enExpression.FACE3: {
+                sad[0] = sad1[0];
+                for (let i = 1; i < 17; i += 2) {
+                    sad[i] = sad1[i + 1];
+                    sad[i + 1] = sad1[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, sad);
+                break;
+            }
+            case enExpression.FACE4: {
+                cry[0] = cry1[0];
+                for (let i = 1; i < 17; i += 2) {
+                    cry[i] = cry1[i + 1];
+                    cry[i + 1] = cry1[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, cry);
+                break;
+            }
+            case enExpression.FACE5: {
+                Surprise[0] = Surprise1[0];
+                for (let i = 1; i < 17; i += 2) {
+                    Surprise[i] = Surprise1[i + 1];
+                    Surprise[i + 1] = Surprise1[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, Surprise);
+                break;
+            }
+            case enExpression.FACE6: {
+                Tongue[0] = Tongue1[0];
+                for (let i = 1; i < 17; i += 2) {
+                    Tongue[i] = Tongue1[i + 1];
+                    Tongue[i + 1] = Tongue1[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, Tongue);
+                break;
+            }
+            case enExpression.FACE7: {
+                Pout[0] = Pout1[0];
+                for (let i = 1; i < 17; i += 2) {
+                    Pout[i] = Pout1[i + 1];
+                    Pout[i + 1] = Pout1[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, Pout);
+                break;
+            }
+            case enExpression.FACE8: {
+                for (let i = 0; i < 17; i++) {
+                    Standing[i] = Standing1[i];
+                }
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, Standing);
+            }
+            default: {
+                break;
+            }
+        }
     }
 
 }
