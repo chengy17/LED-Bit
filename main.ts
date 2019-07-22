@@ -327,7 +327,7 @@ namespace LEDBit {
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
 
-    //% blockId=ledbit_led_show block="LED expression Show|%index"
+    //% blockId=LEDBit_LEDShow block="LED expression Show|%index"
     //% weight=99
     export function LEDShow(index: enExpression): void {
         
