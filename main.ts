@@ -198,8 +198,11 @@ namespace LEDBit {
         character_FACE4,
         //% blockId="character_FACE5" block="char_E"
         character_FACE5,
+
         //% blockId="character_FACE7" block="char_G"
         character_FACE7,
+        //% blockId="character_FACE8" block="char_H"
+        character_FACE8,
     }
 
     let A_show = pins.createBuffer(17);
@@ -209,6 +212,7 @@ namespace LEDBit {
     let E_show = pins.createBuffer(17);
 
     let G_show = pins.createBuffer(17);
+    let H_show = pins.createBuffer(17);
 
     const A1_show: number[] = [0x0, 0x1, 0x0, 0x2, 0x80, 0x4, 0x40, 0x8, 0x20, 0x1f, 0xf0, 0x20, 0x8, 0x40, 0x4, 0x0, 0x0];
     const B1_show: number[] = [0x0, 0x1, 0xe0, 0x2, 0x20, 0x2, 0x20, 0x1, 0xe0, 0x2, 0x20, 0x2, 0x20, 0x2, 0x20, 0x1, 0xe0];
@@ -217,6 +221,7 @@ namespace LEDBit {
     const E1_show: number[] = [0x0, 0x1, 0xf0, 0x0, 0x10, 0x0, 0x10, 0x1, 0xf0, 0x0, 0x10, 0x0, 0x10, 0x0, 0x10, 0x1, 0xf0];
  
     const G1_show: number[] = [0x0, 0x1, 0xe0, 0x2, 0x10, 0x0, 0x10, 0x0, 0x10, 0x3, 0x90, 0x2, 0x10, 0x3, 0xe0, 0x2, 0x0];
+    const H1_show: number[] = [0x0, 0x4, 0x20, 0x4, 0x20, 0x4, 0x20, 0x7, 0xe0, 0x4, 0x20, 0x4, 0x20, 0x4, 0x20, 0x4, 0x20];
 
 
     function i2cwrite(addr: number, reg: number, value: number) {
@@ -553,6 +558,15 @@ namespace LEDBit {
                 pins.i2cWriteBuffer(HT16K33_ADDRESS, G_show);
                 break;
             }   
+            case characterExpression.character_FACE8: {
+                H_show[0] = H1_show[0];
+                for (let i = 1; i < 17; i += 2) {
+                    H_show[i] = H1_show[i + 1];
+                    H_show[i + 1] = H1_show[i];
+                }
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, H_show);
+                break;
+            }
                            
             default: {
                 //statements; 
