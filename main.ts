@@ -144,6 +144,48 @@ namespace LEDBit {
     let House1: number[] = [0x0, 0x1, 0x0, 0x2, 0x80, 0x4, 0x40, 0xf, 0xe0, 0x4, 0x40, 0x4, 0x40, 0x4, 0x40, 0x7, 0xc0];
 
 
+    export enum numExpression {
+        //% blockId="num_FACE1" block="num1"
+        num_FACE1 = 0,
+        //% blockId="num_FACE2" block="num2"
+        num_FACE2,
+        //% blockId="num_FACE3" block="num3"
+        num_FACE3,
+        //% blockId="num_FACE4" block="num4"
+        num_FACE4,
+        //% blockId="num_FACE5" block="num5"
+        num_FACE5,
+        //% blockId="num_FACE6" block="num6"
+        num_FACE6,
+        //% blockId="num_FACE7" block="num7"
+        num_FACE7,
+        //% blockId="num_FACE8" block="num8"
+        num_FACE8,
+        //% blockId="num_FACE9" block="num9"
+        num_FACE9,
+    }
+
+    let num1 = pins.createBuffer(17);
+    let num2 = pins.createBuffer(17);
+    let num3 = pins.createBuffer(17);
+    let num4 = pins.createBuffer(17);
+    let num5 = pins.createBuffer(17);
+    let num6 = pins.createBuffer(17);
+    let num7 = pins.createBuffer(17);
+    let num8 = pins.createBuffer(17);
+    let num9 = pins.createBuffer(17);
+
+
+    let num11: number[] = [0x0, 0x1, 0x0, 0x1, 0x80, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x7, 0xc0];
+    let num21: number[] = [0x0, 0x1, 0xc0, 0x2, 0x20, 0x2, 0x0, 0x1, 0x0, 0x0, 0x80, 0x0, 0x40, 0x0, 0x20, 0x3, 0xf0];
+    let num31: number[] = [0x0, 0x1, 0xc0, 0x2, 0x20, 0x2, 0x0, 0x1, 0x80, 0x2, 0x0, 0x2, 0x0, 0x2, 0x20, 0x1, 0xc0];
+    let num41: number[] = [0x0, 0x0, 0x0, 0x1, 0x40, 0x1, 0x20, 0x1, 0x10, 0x7, 0xf8, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0];
+    let num51: number[] = [0x0, 0x7, 0xc0, 0x0, 0x40, 0x3, 0xc0, 0x4, 0x0, 0x4, 0x0, 0x4, 0x0, 0x4, 0x40, 0x3, 0x80];
+    let num61: number[] = [0x0, 0x3, 0x80, 0x0, 0x40, 0x0, 0x20, 0x3, 0xe0, 0x4, 0x20, 0x4, 0x20, 0x4, 0x20, 0x3, 0xc0];
+    let num71: number[] = [0x0, 0x7, 0xe0, 0x4, 0x0, 0x2, 0x0, 0x1, 0x0, 0x0, 0x80, 0x0, 0x40, 0x0, 0x20, 0x0, 0x0];
+    let num81: number[] = [0x0, 0x7, 0x80, 0x8, 0x40, 0x8, 0x40, 0x7, 0x80, 0x8, 0x40, 0x8, 0x40, 0x8, 0x40, 0x7, 0x80];
+    let num91: number[] = [0x0, 0x7, 0x80, 0x8, 0x40, 0x8, 0x40, 0x8, 0x40, 0xf, 0x80, 0x8, 0x0, 0x8, 0x40, 0x7, 0x80];
+
 
 
     function i2cwrite(addr: number, reg: number, value: number) {
@@ -403,6 +445,120 @@ namespace LEDBit {
                 pins.i2cWriteBuffer(HT16K33_ADDRESS, Gogoing4);
                 basic.pause(600);
 
+                break;
+            }
+            default: {
+                //statements; 
+                break;
+            }
+        }
+    }
+
+
+    //% blockId=ledbit_led_num block="LED num Show|%index_3"
+    //% weight=96
+    export function LEDnum(index_3: numExpression): void {
+        if (!initMatrix) {
+            matrixInit();
+            initMatrix = true;
+        }
+        switch (index_3) {
+            case numExpression.num_FACE1: {
+                num1[0] = num11[0];
+                for (let i = 1; i < 17; i += 2) {
+                    num1[i] = num11[i + 1];
+                    num1[i + 1] = num11[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, num1);
+                break;
+            }
+            case numExpression.num_FACE2: {
+                //statements; 
+                num2[0] = num21[0];
+                for (let i = 1; i < 17; i += 2) {
+                    num2[i] = num21[i + 1];
+                    num2[i + 1] = num21[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, num2);
+                break;
+            }
+            case numExpression.num_FACE3: {
+                //statements; 
+                num3[0] = num31[0];
+                for (let i = 1; i < 17; i += 2) {
+                    num3[i] = num31[i + 1];
+                    num3[i + 1] = num31[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, num3);
+                break;
+            }
+            case numExpression.num_FACE4: {
+                //statements; 
+                num4[0] = num41[0];
+                for (let i = 1; i < 17; i += 2) {
+                    num4[i] = num41[i + 1];
+                    num4[i + 1] = num41[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, num4);
+                break;
+            }
+            case numExpression.num_FACE5: {
+                //statements; 
+                num5[0] = num51[0];
+                for (let i = 1; i < 17; i += 2) {
+                    num5[i] = num51[i + 1];
+                    num5[i + 1] = num51[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, num5);
+                break;
+            }
+            case numExpression.num_FACE6: {
+                //statements; 
+                num6[0] = num61[0];
+                for (let i = 1; i < 17; i += 2) {
+                    num6[i] = num61[i + 1];
+                    num6[i + 1] = num61[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, num6);
+                break;
+            }
+            case numExpression.num_FACE7: {
+                //statements; 
+                num7[0] = num71[0];
+                for (let i = 1; i < 17; i += 2) {
+                    num7[i] = num71[i + 1];
+                    num7[i + 1] = num71[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, num7);
+                break;
+            }
+            case numExpression.num_FACE8: {
+                //statements; 
+                num8[0] = num81[0];
+                for (let i = 1; i < 17; i += 2) {
+                    num8[i] = num81[i + 1];
+                    num8[i + 1] = num81[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, num8);
+                break;
+            }
+            case numExpression.num_FACE9: {
+                //statements; 
+                num9[0] = num91[0];
+                for (let i = 1; i < 17; i += 2) {
+                    num9[i] = num91[i + 1];
+                    num9[i + 1] = num91[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, num9);
                 break;
             }
             default: {
