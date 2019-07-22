@@ -22,10 +22,10 @@ namespace LEDBit {
     let initMatrix = false;
 
     export enum enState {
-        //% blockId="OFF" block="OFF"
-        OFF = 0,
         //% blockId="ON" block="ON"
-        ON = 1
+        ON = 1,
+        //% blockId="OFF" block="OFF"
+        OFF = 0
     }
 
     export enum enExpression {
@@ -993,7 +993,7 @@ namespace LEDBit {
         if (x > 16) x = 16;
         if (y < 1) y = 1;
         if (y > 8) y = 8;
-        
+
         if (x > 8) {
             line = 2 * y;
             x = x - 8;
