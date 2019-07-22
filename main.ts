@@ -53,8 +53,8 @@ namespace LEDBit {
     let sad = pins.createBuffer(17);
     let cry = pins.createBuffer(17);
     let Surprise = pins.createBuffer(17);
-    let Tongue = pins.createBuffer(17);  //吐舌头
-    let Pout = pins.createBuffer(17);    //咧嘴
+    let Tongue = pins.createBuffer(17);  
+    let Pout = pins.createBuffer(17);    
     let Standing = pins.createBuffer(17);
 
     const smile1: number[] = [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x8, 0x18, 0x18, 0xf, 0xf0, 0x3, 0xc0];
