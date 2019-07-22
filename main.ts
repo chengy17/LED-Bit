@@ -2,7 +2,7 @@
 Copyright (C): 2010-2019, Shenzhen Yahboom Tech
 modified from liusen
 load dependency
-"HelloBot": "file:../pxt-ledbit"
+"ledbit": "file:../pxt-ledbit"
 */
 
 //% color="#E21918" weight=20 icon="\uf140"
