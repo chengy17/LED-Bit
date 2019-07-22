@@ -229,8 +229,7 @@ namespace LEDBit {
         character_FACE20,
         
         
-         //% blockId="character_FACE24" block="char_X"
-         character_FACE24,
+         
         
     }
 
@@ -257,7 +256,7 @@ namespace LEDBit {
   
 
 
-    let X_show = pins.createBuffer(17);
+    
     
     
 
@@ -284,7 +283,7 @@ namespace LEDBit {
     
    
     
-    const X1_show: number[] = [0x0, 0x0, 0x0, 0x8, 0x20, 0x4, 0x40, 0x2, 0x80, 0x1, 0x0, 0x2, 0x80, 0x4, 0x40, 0x8, 0x20];
+    
 
    
 
@@ -508,15 +507,6 @@ namespace LEDBit {
             }
                 
             
-            case characterExpression.character_FACE24: {
-                X_show[0] = X1_show[0];
-                for (let i = 1; i < 17; i += 2) {
-                    X_show[i] = X1_show[i + 1];
-                    X_show[i + 1] = X1_show[i];
-                }
-                pins.i2cWriteBuffer(HT16K33_ADDRESS, X_show);
-                break;
-            }
             
 
             default: {
