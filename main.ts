@@ -33,12 +33,12 @@ namespace LEDBit {
         FACE1 = 0,
         //% blockId="FACE2" block="Grin"
         FACE2,
-        // //% blockId="FACE3" block="Sad"
-        // FACE3,
+        //% blockId="FACE3" block="Sad"
+        FACE3,
         //% blockId="FACE4" block="Cry"
         FACE4,
-        // //% blockId="FACE5" block="Surprise"
-        // FACE5,
+        //% blockId="FACE5" block="Surprise"
+        FACE5,
         //% blockId="FACE6" block="Tongue"
         FACE6,
         //% blockId="FACE7" block="Pout"
@@ -49,18 +49,18 @@ namespace LEDBit {
 
     let smile = pins.createBuffer(17);
     let grin = pins.createBuffer(17);
-    // let sad = pins.createBuffer(17);
+    let sad = pins.createBuffer(17);
     let cry = pins.createBuffer(17);
-    // let Surprise = pins.createBuffer(17);
+    let Surprise = pins.createBuffer(17);
     let Tongue = pins.createBuffer(17);
     let Pout = pins.createBuffer(17);
     let Standing = pins.createBuffer(17);
 
     const smile1: number[] = [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x8, 0x18, 0x18, 0xf, 0xf0, 0x3, 0xc0];
     const grin1: number[] = [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3f, 0xfc, 0x15, 0xa8, 0xf, 0xf0, 0x3, 0xc0];
-    // const sad1: number[] = [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0xc0, 0xf, 0xf0, 0x18, 0x18, 0x30, 0xc, 0x20, 0x4];
+    const sad1: number[] = [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0xc0, 0xf, 0xf0, 0x18, 0x18, 0x30, 0xc, 0x20, 0x4];
     const cry1: number[] = [0x0, 0xc, 0x18, 0xc, 0x18, 0x8, 0x8, 0x0, 0x0, 0x0, 0x0, 0x1, 0xc0, 0x2, 0x20, 0x4, 0x10];
-    // const Surprise1: number[] = [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x7, 0xe0, 0x4, 0x20, 0x2, 0x40, 0x1, 0x80];
+    const Surprise1: number[] = [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x7, 0xe0, 0x4, 0x20, 0x2, 0x40, 0x1, 0x80];
     const Tongue1: number[] = [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x8, 0xf, 0xf0, 0xe, 0x0, 0x4, 0x0, 0x0, 0x0];
     const Pout1: number[] = [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1f, 0xf8, 0x8, 0x10, 0x4, 0x20, 0x3, 0xc0];
     const Standing1: number[] = [0x00, 0xC0, 0x03, 0x40, 0x02, 0x40, 0x02, 0xC0, 0x03, 0xA0, 0x05, 0xA0, 0x05, 0x40, 0x02, 0x40, 0x02];
@@ -85,8 +85,6 @@ namespace LEDBit {
         //% blockId="num_FACE9" block="num9"
         num_FACE9,
     }
-
-    
 
     const num11: number[] = [0x0, 0x1, 0x0, 0x1, 0x80, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x7, 0xc0];
     const num21: number[] = [0x0, 0x1, 0xc0, 0x2, 0x20, 0x2, 0x0, 0x1, 0x0, 0x0, 0x80, 0x0, 0x40, 0x0, 0x20, 0x3, 0xf0];
@@ -134,6 +132,7 @@ namespace LEDBit {
     const Crying31: number[] = [0x0, 0x18, 0x18, 0x18, 0x18, 0x10, 0x8, 0x0, 0x0, 0x10, 0x8, 0x0, 0x0, 0x7, 0xe0, 0x8, 0x10];
     const Crying41: number[] = [0x0, 0x18, 0x18, 0x18, 0x18, 0x10, 0x8, 0x0, 0x0, 0x0, 0x0, 0x10, 0x8, 0x0, 0x0, 0xf, 0xf0];
 
+
     let Gogoing0 = pins.createBuffer(17);
     let Gogoing1 = pins.createBuffer(17);
     let Gogoing2 = pins.createBuffer(17);
@@ -153,10 +152,10 @@ namespace LEDBit {
         picture_FACE2,
         //% blockId="picture_FACE3" block="Small_heart"
         picture_FACE3,
-        // //% blockId="picture_FACE4" block="Glass"
-        // picture_FACE4,
-        // //% blockId="picture_FACE5" block="Teapot"
-        // picture_FACE5,
+        //% blockId="picture_FACE4" block="Glass"
+        picture_FACE4,
+        //% blockId="picture_FACE5" block="Teapot"
+        picture_FACE5,
         //% blockId="picture_FACE6" block="House"
         picture_FACE6,
     }
@@ -164,15 +163,15 @@ namespace LEDBit {
     let Big_heart = pins.createBuffer(17);
     let Boat = pins.createBuffer(17);
     let Small_heart = pins.createBuffer(17);
-    // let Glass = pins.createBuffer(17);
-    // let Teapot = pins.createBuffer(17);
+    let Glass = pins.createBuffer(17);
+    let Teapot = pins.createBuffer(17);
     let House = pins.createBuffer(17);
 
     const Big_heart1: number[] = [0x0, 0xc, 0x60, 0x1e, 0xf0, 0x1f, 0xf0, 0x1f, 0xf0, 0xf, 0xe0, 0x7, 0xc0, 0x3, 0x80, 0x1, 0x0];
     const Boat1: number[] = [0x0, 0x8, 0x0, 0xc, 0x0, 0xe, 0x0, 0x8, 0x0, 0x8, 0x0, 0x1f, 0xf8, 0xf, 0xf0, 0x7, 0xe0];
     const Small_heart1: number[] = [0x0, 0x0, 0x0, 0x6, 0xc0, 0xf, 0xe0, 0xf, 0xe0, 0x7, 0xc0, 0x3, 0x80, 0x1, 0x0, 0x0, 0x0];
-    // const Glass1: number[] = [0x0, 0x0, 0x0, 0x0, 0x0, 0xf, 0xe0, 0x4, 0x38, 0x4, 0x24, 0x4, 0x24, 0x4, 0x38, 0x7, 0xe0];
-    // const Teapot1: number[] = [0x0, 0x1, 0x0, 0x3, 0x80, 0x37, 0xc0, 0x48, 0x2c, 0x48, 0x38, 0x48, 0x30, 0x34, 0x60, 0x3, 0x80];
+    const Glass1: number[] = [0x0, 0x0, 0x0, 0x0, 0x0, 0xf, 0xe0, 0x4, 0x38, 0x4, 0x24, 0x4, 0x24, 0x4, 0x38, 0x7, 0xe0];
+    const Teapot1: number[] = [0x0, 0x1, 0x0, 0x3, 0x80, 0x37, 0xc0, 0x48, 0x2c, 0x48, 0x38, 0x48, 0x30, 0x34, 0x60, 0x3, 0x80];
     const House1: number[] = [0x0, 0x1, 0x0, 0x2, 0x80, 0x4, 0x40, 0xf, 0xe0, 0x4, 0x40, 0x4, 0x40, 0x4, 0x40, 0x7, 0xc0];
 
 
@@ -231,37 +230,6 @@ namespace LEDBit {
         //% blockId="character_FACE26" block="char_Z"
         character_FACE26
     }
-
-
-    let A_show = pins.createBuffer(17);
-    let B_show = pins.createBuffer(17);
-    let C_show = pins.createBuffer(17);
-    let D_show = pins.createBuffer(17);
-    let E_show = pins.createBuffer(17);
-    let F_show = pins.createBuffer(17);
-    let G_show = pins.createBuffer(17);
-    let H_show = pins.createBuffer(17);
-    let I_show = pins.createBuffer(17);
-    let J_show = pins.createBuffer(17);
-    let K_show = pins.createBuffer(17);
-    let L_show = pins.createBuffer(17);
-    let M_show = pins.createBuffer(17);
-    let N_show = pins.createBuffer(17);
-    let O_show = pins.createBuffer(17);
-    let P_show = pins.createBuffer(17);
-    let Q_show = pins.createBuffer(17);
-    let R_show = pins.createBuffer(17);
-    let S_show = pins.createBuffer(17);
-    let T_show = pins.createBuffer(17);
-    let U_show = pins.createBuffer(17);
-    let V_show = pins.createBuffer(17);
-    let W_show = pins.createBuffer(17);
-    let X_show = pins.createBuffer(17);
-    let Y_show = pins.createBuffer(17);
-    let Z_show = pins.createBuffer(17);
-
-
-
 
     const A1_show: number[] = [0x0, 0x1, 0x0, 0x2, 0x80, 0x4, 0x40, 0x8, 0x20, 0x1f, 0xf0, 0x20, 0x8, 0x40, 0x4, 0x0, 0x0];
     const B1_show: number[] = [0x0, 0x1, 0xe0, 0x2, 0x20, 0x2, 0x20, 0x1, 0xe0, 0x2, 0x20, 0x2, 0x20, 0x2, 0x20, 0x1, 0xe0];
@@ -352,16 +320,16 @@ namespace LEDBit {
                 pins.i2cWriteBuffer(HT16K33_ADDRESS, grin);
                 break;
             }
-            // case enExpression.FACE3: {
-            //     sad[0] = sad1[0];
-            //     for (let i = 1; i < 17; i += 2) {
-            //         sad[i] = sad1[i + 1];
-            //         sad[i + 1] = sad1[i];
-            //     }
+            case enExpression.FACE3: {
+                sad[0] = sad1[0];
+                for (let i = 1; i < 17; i += 2) {
+                    sad[i] = sad1[i + 1];
+                    sad[i + 1] = sad1[i];
+                }
 
-            //     pins.i2cWriteBuffer(HT16K33_ADDRESS, sad);
-            //     break;
-            // }
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, sad);
+                break;
+            }
             case enExpression.FACE4: {
                 cry[0] = cry1[0];
                 for (let i = 1; i < 17; i += 2) {
@@ -372,16 +340,16 @@ namespace LEDBit {
                 pins.i2cWriteBuffer(HT16K33_ADDRESS, cry);
                 break;
             }
-            // case enExpression.FACE5: {
-            //     Surprise[0] = Surprise1[0];
-            //     for (let i = 1; i < 17; i += 2) {
-            //         Surprise[i] = Surprise1[i + 1];
-            //         Surprise[i + 1] = Surprise1[i];
-            //     }
+            case enExpression.FACE5: {
+                Surprise[0] = Surprise1[0];
+                for (let i = 1; i < 17; i += 2) {
+                    Surprise[i] = Surprise1[i + 1];
+                    Surprise[i + 1] = Surprise1[i];
+                }
 
-            //     pins.i2cWriteBuffer(HT16K33_ADDRESS, Surprise);
-            //     break;
-            // }
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, Surprise);
+                break;
+            }
             case enExpression.FACE6: {
                 Tongue[0] = Tongue1[0];
                 for (let i = 1; i < 17; i += 2) {
@@ -567,6 +535,7 @@ namespace LEDBit {
         }
         switch (index_2) {
             case characterExpression.character_FACE1: {
+                let A_show = pins.createBuffer(17);
                 A_show[0] = A1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     A_show[i] = A1_show[i + 1];
@@ -577,6 +546,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE2: {
+                let B_show = pins.createBuffer(17);
                 B_show[0] = B1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     B_show[i] = B1_show[i + 1];
@@ -587,6 +557,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE3: {
+                let C_show = pins.createBuffer(17);
                 C_show[0] = C1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     C_show[i] = C1_show[i + 1];
@@ -597,7 +568,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE4: {
-
+                let D_show = pins.createBuffer(17);
                 D_show[0] = D1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     D_show[i] = D1_show[i + 1];
@@ -608,6 +579,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE5: {
+                let E_show = pins.createBuffer(17);
                 E_show[0] = E1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     E_show[i] = E1_show[i + 1];
@@ -618,6 +590,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE6: {
+                let F_show = pins.createBuffer(17);
                 F_show[0] = F1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     F_show[i] = F1_show[i + 1];
@@ -627,6 +600,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE7: {
+                let G_show = pins.createBuffer(17);
                 G_show[0] = G1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     G_show[i] = G1_show[i + 1];
@@ -636,6 +610,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE8: {
+                let H_show = pins.createBuffer(17);
                 H_show[0] = H1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     H_show[i] = H1_show[i + 1];
@@ -645,6 +620,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE9: {
+                let I_show = pins.createBuffer(17);
                 I_show[0] = I1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     I_show[i] = I1_show[i + 1];
@@ -654,6 +630,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE10: {
+                let J_show = pins.createBuffer(17);
                 J_show[0] = J1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     J_show[i] = J1_show[i + 1];
@@ -663,6 +640,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE11: {
+                let K_show = pins.createBuffer(17);
                 K_show[0] = K1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     K_show[i] = K1_show[i + 1];
@@ -672,6 +650,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE12: {
+                let L_show = pins.createBuffer(17);
                 L_show[0] = L1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     L_show[i] = L1_show[i + 1];
@@ -681,6 +660,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE13: {
+                let M_show = pins.createBuffer(17);
                 M_show[0] = M1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     M_show[i] = M1_show[i + 1];
@@ -690,6 +670,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE14: {
+                let N_show = pins.createBuffer(17);
                 N_show[0] = N1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     N_show[i] = N1_show[i + 1];
@@ -699,6 +680,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE15: {
+                let O_show = pins.createBuffer(17);
                 O_show[0] = O1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     O_show[i] = O1_show[i + 1];
@@ -708,6 +690,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE16: {
+                let P_show = pins.createBuffer(17);
                 P_show[0] = P1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     P_show[i] = P1_show[i + 1];
@@ -717,6 +700,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE17: {
+                let Q_show = pins.createBuffer(17);
                 Q_show[0] = Q1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     Q_show[i] = Q1_show[i + 1];
@@ -726,6 +710,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE18: {
+                let R_show = pins.createBuffer(17);
                 R_show[0] = R1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     R_show[i] = R1_show[i + 1];
@@ -735,6 +720,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE19: {
+                let S_show = pins.createBuffer(17);
                 S_show[0] = S1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     S_show[i] = S1_show[i + 1];
@@ -744,6 +730,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE20: {
+                let T_show = pins.createBuffer(17);
                 T_show[0] = T1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     T_show[i] = T1_show[i + 1];
@@ -753,6 +740,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE21: {
+                let U_show = pins.createBuffer(17);
                 U_show[0] = U1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     U_show[i] = U1_show[i + 1];
@@ -762,6 +750,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE22: {
+                let V_show = pins.createBuffer(17);
                 V_show[0] = V1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     V_show[i] = V1_show[i + 1];
@@ -771,6 +760,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE23: {
+                let W_show = pins.createBuffer(17);
                 W_show[0] = W1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     W_show[i] = W1_show[i + 1];
@@ -780,6 +770,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE24: {
+                let X_show = pins.createBuffer(17);
                 X_show[0] = X1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     X_show[i] = X1_show[i + 1];
@@ -789,6 +780,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE25: {
+                let Y_show = pins.createBuffer(17);
                 Y_show[0] = Y1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     Y_show[i] = Y1_show[i + 1];
@@ -798,6 +790,7 @@ namespace LEDBit {
                 break;
             }
             case characterExpression.character_FACE26: {
+                let Z_show = pins.createBuffer(17);
                 Z_show[0] = Z1_show[0];
                 for (let i = 1; i < 17; i += 2) {
                     Z_show[i] = Z1_show[i + 1];
@@ -808,7 +801,6 @@ namespace LEDBit {
             }
 
             default: {
-                //statements; 
                 break;
             }
         }
@@ -901,7 +893,7 @@ namespace LEDBit {
                 break;
             }
             case numExpression.num_FACE8: {
-                let num8 = pins.createBuffer(17); 
+                let num8 = pins.createBuffer(17);
                 num8[0] = num81[0];
                 for (let i = 1; i < 17; i += 2) {
                     num8[i] = num81[i + 1];
@@ -967,26 +959,26 @@ namespace LEDBit {
                 pins.i2cWriteBuffer(HT16K33_ADDRESS, Small_heart);
                 break;
             }
-            // case pictureExpression.picture_FACE4: {
-            //     Glass[0] = Glass1[0];
-            //     for (let i = 1; i < 17; i += 2) {
-            //         Glass[i] = Glass1[i + 1];
-            //         Glass[i + 1] = Glass1[i];
-            //     }
+            case pictureExpression.picture_FACE4: {
+                Glass[0] = Glass1[0];
+                for (let i = 1; i < 17; i += 2) {
+                    Glass[i] = Glass1[i + 1];
+                    Glass[i + 1] = Glass1[i];
+                }
 
-            //     pins.i2cWriteBuffer(HT16K33_ADDRESS, Glass);
-            //     break;
-            // }
-            // case pictureExpression.picture_FACE5: {
-            //     Teapot[0] = Teapot1[0];
-            //     for (let i = 1; i < 17; i += 2) {
-            //         Teapot[i] = Teapot1[i + 1];
-            //         Teapot[i + 1] = Teapot1[i];
-            //     }
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, Glass);
+                break;
+            }
+            case pictureExpression.picture_FACE5: {
+                Teapot[0] = Teapot1[0];
+                for (let i = 1; i < 17; i += 2) {
+                    Teapot[i] = Teapot1[i + 1];
+                    Teapot[i + 1] = Teapot1[i];
+                }
 
-            //     pins.i2cWriteBuffer(HT16K33_ADDRESS, Teapot);
-            //     break;
-            // }
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, Teapot);
+                break;
+            }
             case pictureExpression.picture_FACE6: {
                 House[0] = House1[0];
                 for (let i = 1; i < 17; i += 2) {
