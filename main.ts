@@ -190,14 +190,28 @@ namespace LEDBit {
     export enum characterExpression {
         //% blockId="character_FACE1" block="char_A"
         character_FACE1 = 0,
-       
+        //% blockId="character_FACE2" block="char_B"
+        character_FACE2,
+        //% blockId="character_FACE3" block="char_C"
+        character_FACE3,
+        //% blockId="character_FACE4" block="char_D"
+        character_FACE4,
+        //% blockId="character_FACE5" block="char_E"
+        character_FACE5,
     }
 
     let A_show = pins.createBuffer(17);
-
+    let B_show = pins.createBuffer(17);
+    let C_show = pins.createBuffer(17);
+    let D_show = pins.createBuffer(17);
+    let E_show = pins.createBuffer(17);
 
     const A1_show: number[] = [0x0, 0x1, 0x0, 0x2, 0x80, 0x4, 0x40, 0x8, 0x20, 0x1f, 0xf0, 0x20, 0x8, 0x40, 0x4, 0x0, 0x0];
-    
+    const B1_show: number[] = [0x0, 0x1, 0xe0, 0x2, 0x20, 0x2, 0x20, 0x1, 0xe0, 0x2, 0x20, 0x2, 0x20, 0x2, 0x20, 0x1, 0xe0];
+    const C1_show: number[] = [0x0, 0x1, 0xe0, 0x2, 0x10, 0x0, 0x10, 0x0, 0x10, 0x0, 0x10, 0x0, 0x10, 0x2, 0x10, 0x1, 0xe0];
+    const D1_show: number[] = [0x0, 0x1, 0xf0, 0x2, 0x10, 0x4, 0x10, 0x4, 0x10, 0x4, 0x10, 0x4, 0x10, 0x2, 0x10, 0x1, 0xe0];
+    const E1_show: number[] = [0x0, 0x1, 0xf0, 0x0, 0x10, 0x0, 0x10, 0x1, 0xf0, 0x0, 0x10, 0x0, 0x10, 0x0, 0x10, 0x1, 0xf0];
+
 
     function i2cwrite(addr: number, reg: number, value: number) {
         let buf = pins.createBuffer(2)
@@ -483,7 +497,48 @@ namespace LEDBit {
                 pins.i2cWriteBuffer(HT16K33_ADDRESS, A_show);
                 break;
             }
-            
+            case characterExpression.character_FACE2: {
+                B_show[0] = B1_show[0];
+                for (let i = 1; i < 17; i += 2) {
+                    B_show[i] = B1_show[i + 1];
+                    B_show[i + 1] = B1_show[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, B_show);
+                break;
+            }
+            case characterExpression.character_FACE3: {
+                C_show[0] = C1_show[0];
+                for (let i = 1; i < 17; i += 2) {
+                    C_show[i] = C1_show[i + 1];
+                    C_show[i + 1] = C1_show[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, C_show);
+                break;
+            }
+            case characterExpression.character_FACE4: {
+
+                D_show[0] = D1_show[0];
+                for (let i = 1; i < 17; i += 2) {
+                    D_show[i] = D1_show[i + 1];
+                    D_show[i + 1] = D1_show[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, D_show);
+                break;
+            }
+            case characterExpression.character_FACE5: {
+                E_show[0] = E1_show[0];
+                for (let i = 1; i < 17; i += 2) {
+                    E_show[i] = E1_show[i + 1];
+                    E_show[i + 1] = E1_show[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, E_show);
+                break;
+            }
+
             default: {
                 //statements; 
                 break;
