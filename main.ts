@@ -253,12 +253,6 @@ namespace LEDBit {
         i2ccmd(HT16K33_ADDRESS, HT16K33_CMD_BRIGHTNESS | 0xF);
     }
 
-    // function matrixShow(matBuf: Buffer) {
-
-    //     matBuf[0] = 0x00;
-    //     pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
-    // }
-
     //% blockId=ledbit_led_show block="LED expression Show|%index"
     //% weight=99
     export function LEDShow(index: enExpression): void {
@@ -993,14 +987,14 @@ namespace LEDBit {
             initMatrix = true;
         }
         let matBuf = pins.createBuffer(17);
-        let idx = y * 2 + x / 8;
-        let tmp = matBuf[idx + 1];
-        if (on == enState.ON)
-            tmp |= (1 << (x % 8));
-        else
-            tmp &= ~(1 << (x % 8));
-        matBuf[idx + 1] = tmp;
-        // matrixShow(matBuf);
+        // let idx = y * 2 + x / 8;
+        // let tmp = matBuf[idx + 1];
+        // if (on == enState.ON)
+        //     tmp |= (1 << (x % 8));
+        // else
+        //     tmp &= ~(1 << (x % 8));
+        // matBuf[idx + 1] = tmp;
+        matBuf[1] = 4;
         matBuf[0] = 0x00;
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
@@ -1017,7 +1011,6 @@ namespace LEDBit {
         for (let i = 0; i < 16; i++) {
             matBuf[i + 1] = 0;
         }
-        // matrixShow(matBuf);
         matBuf[0] = 0x00;
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
@@ -1034,7 +1027,6 @@ namespace LEDBit {
         for (let i = 0; i < 16; i++) {
             matBuf[i + 1] = 0xff;
         }
-        // matrixShow(matBuf);
         matBuf[0] = 0x00;
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
