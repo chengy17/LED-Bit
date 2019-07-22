@@ -188,57 +188,57 @@ namespace LEDBit {
 
 
     export enum characterExpression {
-        //% blockId="character_FACE1" block="A1"
+        //% blockId="character_FACE1" block="char_A"
         character_FACE1 = 0,
-        //% blockId="character_FACE2" block="B1"
+        //% blockId="character_FACE2" block="char_B"
         character_FACE2,
-        //% blockId="character_FACE3" block="C1"
+        //% blockId="character_FACE3" block="char_C"
         character_FACE3,
-        //% blockId="character_FACE4" block="D1"
+        //% blockId="character_FACE4" block="char_D"
         character_FACE4,
-        //% blockId="character_FACE5" block="E1"
+        //% blockId="character_FACE5" block="char_E"
         character_FACE5,
-        //% blockId="character_FACE6" block="F1"
+        //% blockId="character_FACE6" block="char_F"
         character_FACE6,
-        //% blockId="character_FACE7" block="G1"
+        //% blockId="character_FACE7" block="char_G"
         character_FACE7,
-        //% blockId="character_FACE8" block="H1"
+        //% blockId="character_FACE8" block="char_H"
         character_FACE8,
-        //% blockId="character_FACE9" block="I1"
+        //% blockId="character_FACE9" block="char_I"
         character_FACE9,
-        //% blockId="character_FACE10" block="J1"
+        //% blockId="character_FACE10" block="char_J"
         character_FACE10,
-        //% blockId="character_FACE11" block="K1"
+        //% blockId="character_FACE11" block="char_K"
         character_FACE11,
-        //% blockId="character_FACE12" block="L1"
+        //% blockId="character_FACE12" block="char_L"
         character_FACE12,
-        //% blockId="character_FACE13" block="M1"
+        //% blockId="character_FACE13" block="char_M"
         character_FACE13,
-        //% blockId="character_FACE14" block="N1"
+        //% blockId="character_FACE14" block="char_N"
         character_FACE14,
-        //% blockId="character_FACE15" block="O1"
+        //% blockId="character_FACE15" block="char_O"
         character_FACE15,
-        //% blockId="character_FACE16" block="P1"
+        //% blockId="character_FACE16" block="char_P"
         character_FACE16,
-        //% blockId="character_FACE17" block="Q1"
+        //% blockId="character_FACE17" block="char_Q"
         character_FACE17,
-        //% blockId="character_FACE18" block="R1"
+        //% blockId="character_FACE18" block="char_R"
         character_FACE18,
-        //% blockId="character_FACE19" block="S1"
+        //% blockId="character_FACE19" block="char_S"
         character_FACE19,
-        //% blockId="character_FACE20" block="T1"
+        //% blockId="character_FACE20" block="char_T"
         character_FACE20,
-        //% blockId="character_FACE21" block="U1"
+        //% blockId="character_FACE21" block="char_U"
         character_FACE21,
-        //% blockId="character_FACE22" block="V1"
+        //% blockId="character_FACE22" block="char_V"
         character_FACE22,
-        //% blockId="character_FACE23" block="W1"
+        //% blockId="character_FACE23" block="char_W"
         character_FACE23,
-        //% blockId="character_FACE24" block="X1"
+        //% blockId="character_FACE24" block="char_X"
         character_FACE24,
-        //% blockId="character_FACE25" block="Y1"
+        //% blockId="character_FACE25" block="char_Y"
         character_FACE25,
-        //% blockId="character_FACE26" block="Z1"
+        //% blockId="character_FACE26" block="char_Z"
         character_FACE26,
     }
 
