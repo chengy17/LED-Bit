@@ -25,15 +25,21 @@ namespace LEDBit {
 
     export enum characterExpression {
         
+        //% blockId="character_FACE2" block="char_B"
+        character_FACE2,
+
+
         //% blockId="character_FACE6" block="char_F"
         character_FACE6,
         
     }
 
+    let B_show = pins.createBuffer(17);
     
     let zimuF_show = pins.createBuffer(17);
     
 
+	const B1_show: number[] = [0x0, 0x1, 0xe0, 0x2, 0x20, 0x2, 0x20, 0x1, 0xe0, 0x2, 0x20, 0x2, 0x20, 0x2, 0x20, 0x1, 0xe0];
 
     const zimuF1_show: number[] = [0x0, 0x7, 0xe0, 0x0, 0x20, 0x0, 0x20, 0x3, 0xe0, 0x0, 0x20, 0x0, 0x20, 0x0, 0x20, 0x0, 0x20];
     
@@ -78,6 +84,16 @@ namespace LEDBit {
             initMatrix = true;
         }
         switch (index_2) {
+            case characterExpression.character_FACE2: {
+                B_show[0] = B1_show[0];
+                for (let i = 1; i < 17; i += 2) {
+                    B_show[i] = B1_show[i + 1];
+                    B_show[i + 1] = B1_show[i];
+                }
+
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, B_show);
+                break;
+            }
             
             case characterExpression.character_FACE6: {
                 zimuF_show[0] = zimuF1_show[0];
