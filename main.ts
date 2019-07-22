@@ -18,7 +18,7 @@ namespace LEDBit {
     const HT16K33_BLINK_HALFHZ = 3;
     const HT16K33_CMD_BRIGHTNESS = 0xE0;
 
-    
+
     let initMatrix = false;
 
     export enum enState {
@@ -987,15 +987,23 @@ namespace LEDBit {
             initMatrix = true;
         }
         let matBuf = pins.createBuffer(17);
-        // let idx = y * 2 + x / 8;
-        // let tmp = matBuf[idx + 1];
-        // if (on == enState.ON)
-        //     tmp |= (1 << (x % 8));
-        // else
-        //     tmp &= ~(1 << (x % 8));
-        // matBuf[idx + 1] = tmp;
+        let line = 1;
+        let row = 1;
+        if (x > 8) {
+            line = 2 * y;
+            x = x - 8;
+        } else {
+            line = 2 * y - 1;
+        }
+        
+        if (on == enState.ON) {
+            row = 1 << (x - 1);
+            matBuf[line] = row;
+        } else {
+            row = 0 << (x - 1);
+            matBuf[line] = row;
+        }
 
-        matBuf[1] = 8;
         matBuf[0] = 0x00;
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
