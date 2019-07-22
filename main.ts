@@ -198,6 +198,16 @@ namespace LEDBit {
         character_FACE4,
         //% blockId="character_FACE5" block="char_E"
         character_FACE5,
+        //% blockId="character_FACE6" block="char_F"
+        character_FACE6,
+        //% blockId="character_FACE7" block="char_G"
+        character_FACE7,
+        //% blockId="character_FACE8" block="char_H"
+        character_FACE8,
+        //% blockId="character_FACE9" block="char_I"
+        character_FACE9,
+        //% blockId="character_FACE10" block="char_J"
+        character_FACE10,
     }
 
     let A_show = pins.createBuffer(17);
@@ -205,12 +215,22 @@ namespace LEDBit {
     let C_show = pins.createBuffer(17);
     let D_show = pins.createBuffer(17);
     let E_show = pins.createBuffer(17);
+    let F_show = pins.createBuffer(17);
+    let G_show = pins.createBuffer(17);
+    let H_show = pins.createBuffer(17);
+    let I_show = pins.createBuffer(17);
+    let J_show = pins.createBuffer(17);
 
     const A1_show: number[] = [0x0, 0x1, 0x0, 0x2, 0x80, 0x4, 0x40, 0x8, 0x20, 0x1f, 0xf0, 0x20, 0x8, 0x40, 0x4, 0x0, 0x0];
     const B1_show: number[] = [0x0, 0x1, 0xe0, 0x2, 0x20, 0x2, 0x20, 0x1, 0xe0, 0x2, 0x20, 0x2, 0x20, 0x2, 0x20, 0x1, 0xe0];
     const C1_show: number[] = [0x0, 0x1, 0xe0, 0x2, 0x10, 0x0, 0x10, 0x0, 0x10, 0x0, 0x10, 0x0, 0x10, 0x2, 0x10, 0x1, 0xe0];
     const D1_show: number[] = [0x0, 0x1, 0xf0, 0x2, 0x10, 0x4, 0x10, 0x4, 0x10, 0x4, 0x10, 0x4, 0x10, 0x2, 0x10, 0x1, 0xe0];
     const E1_show: number[] = [0x0, 0x1, 0xf0, 0x0, 0x10, 0x0, 0x10, 0x1, 0xf0, 0x0, 0x10, 0x0, 0x10, 0x0, 0x10, 0x1, 0xf0];
+    const F1_show: number[] = [0x0, 0x7, 0xe0, 0x0, 0x20, 0x0, 0x20, 0x3, 0xe0, 0x0, 0x20, 0x0, 0x20, 0x0, 0x20, 0x0, 0x20];
+    const G1_show: number[] = [0x0, 0x1, 0xe0, 0x2, 0x10, 0x0, 0x10, 0x0, 0x10, 0x3, 0x90, 0x2, 0x10, 0x3, 0xe0, 0x2, 0x0];
+    const H1_show: number[] = [0x0, 0x4, 0x20, 0x4, 0x20, 0x4, 0x20, 0x7, 0xe0, 0x4, 0x20, 0x4, 0x20, 0x4, 0x20, 0x4, 0x20];
+    const I1_show: number[] = [0x0, 0x7, 0xc0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x7, 0xc0];
+    const J1_show: number[] = [0x0, 0x7, 0xe0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x20, 0x0, 0xc0, 0x0, 0x0];
 
 
     function i2cwrite(addr: number, reg: number, value: number) {
@@ -536,6 +556,51 @@ namespace LEDBit {
                 }
 
                 pins.i2cWriteBuffer(HT16K33_ADDRESS, E_show);
+                break;
+            }
+            case characterExpression.character_FACE6: {
+                F_show[0] = F1_show[0];
+                for (let i = 1; i < 17; i += 2) {
+                    F_show[i] = F1_show[i + 1];
+                    F_show[i + 1] = F1_show[i];
+                }
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, F_show);
+                break;
+            }
+            case characterExpression.character_FACE7: {
+                G_show[0] = G1_show[0];
+                for (let i = 1; i < 17; i += 2) {
+                    G_show[i] = G1_show[i + 1];
+                    G_show[i + 1] = G1_show[i];
+                }
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, G_show);
+                break;
+            }
+            case characterExpression.character_FACE8: {
+                H_show[0] = H1_show[0];
+                for (let i = 1; i < 17; i += 2) {
+                    H_show[i] = H1_show[i + 1];
+                    H_show[i + 1] = H1_show[i];
+                }
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, H_show);
+                break;
+            }
+            case characterExpression.character_FACE9: {
+                I_show[0] = I1_show[0];
+                for (let i = 1; i < 17; i += 2) {
+                    I_show[i] = I1_show[i + 1];
+                    I_show[i + 1] = I1_show[i];
+                }
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, I_show);
+                break;
+            }
+            case characterExpression.character_FACE10: {
+                J_show[0] = J1_show[0];
+                for (let i = 1; i < 17; i += 2) {
+                    J_show[i] = J1_show[i + 1];
+                    J_show[i + 1] = J1_show[i];
+                }
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, J_show);
                 break;
             }
 
