@@ -229,8 +229,7 @@ namespace LEDBit {
         character_FACE20,
 
 
-        //% blockId="character_FACE26" block="char_Z"
-        character_FACE26,
+       
     }
 
     let A_show = pins.createBuffer(17);
@@ -254,7 +253,7 @@ namespace LEDBit {
     let S_show = pins.createBuffer(17);
     let T_show = pins.createBuffer(17);
 
-    let Z_show = pins.createBuffer(17);
+   
 
 
 
@@ -282,7 +281,7 @@ namespace LEDBit {
     const T1_show: number[] = [0x0, 0xf, 0xe0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0];
 
 
-    const Z1_show: number[] = [0x0, 0x1f, 0xe0, 0x8, 0x0, 0x4, 0x0, 0x2, 0x0, 0x1, 0x0, 0x0, 0x80, 0x0, 0x40, 0x1f, 0xe0];
+    
 
 
 
@@ -310,7 +309,7 @@ namespace LEDBit {
     }
 
     function matrixInit() {
-        i2ccmd(HT16K33_ADDRESS, 0x21);// turn on oscillator
+        i2ccmd(HT16K33_ADDRESS, 0x21);
         i2ccmd(HT16K33_ADDRESS, HT16K33_BLINK_CMD | HT16K33_BLINK_DISPLAYON | (0 << 1));
         i2ccmd(HT16K33_ADDRESS, HT16K33_CMD_BRIGHTNESS | 0xF);
     }
@@ -505,17 +504,6 @@ namespace LEDBit {
                     T_show[i + 1] = T1_show[i];
                 }
                 pins.i2cWriteBuffer(HT16K33_ADDRESS, T_show);
-                break;
-            }
-
-
-            case characterExpression.character_FACE26: {
-                Z_show[0] = Z1_show[0];
-                for (let i = 1; i < 17; i += 2) {
-                    Z_show[i] = Z1_show[i + 1];
-                    Z_show[i + 1] = Z1_show[i];
-                }
-                pins.i2cWriteBuffer(HT16K33_ADDRESS, Z_show);
                 break;
             }
 
