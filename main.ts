@@ -253,7 +253,8 @@ namespace LEDBit {
         i2ccmd(HT16K33_ADDRESS, HT16K33_CMD_BRIGHTNESS | 0xF);
     }
 
-    function matrixShow() {
+    function matrixShow(matBuf: Buffer) {
+
         matBuf[0] = 0x00;
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
@@ -999,7 +1000,7 @@ namespace LEDBit {
         else
             tmp &= ~(1 << (x % 8));
         matBuf[idx + 1] = tmp;
-        matrixShow();
+        matrixShow(matBuf);
     }
 
 
@@ -1014,7 +1015,7 @@ namespace LEDBit {
         for (let i = 0; i < 16; i++) {
             matBuf[i + 1] = 0;
         }
-        matrixShow();
+        matrixShow(matBuf);
     }
 
     //% blockId=ledbit_led_AllOn block="Matrix All On"
@@ -1029,7 +1030,7 @@ namespace LEDBit {
         for (let i = 0; i < 16; i++) {
             matBuf[i + 1] = 0xff;
         }
-        matrixShow();
+        matrixShow(matBuf);
     }
 
 }
