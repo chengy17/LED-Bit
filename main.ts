@@ -644,6 +644,24 @@ namespace LEDBit {
         }
     }
 
+    //% blockId=ledbit_led_draw block="LED expression Draw|X %x|Y %y| %on"
+    //% x.min=1 x.max=15 y.min=0 y.max=7
+    //% weight=94
+    export function LEDDraw(x: number, y: number, on: enState): void {
+        if (!initMatrix) {
+            matrixInit();
+            initMatrix = true;
+        }
+        let idx = y * 2 + x / 8;
+        let tmp = matBuf[idx + 1];
+        if (on == enState.ON)
+            tmp |= (1 << (x % 8));
+        else
+            tmp &= ~(1 << (x % 8));
+        matBuf[idx + 1] = tmp;
+        matrixShow();
+    }
+
     //% blockId=ledbit_led_clear block="LED expression Clear"
     //% weight=93
     export function LEDClear(): void {
@@ -653,6 +671,20 @@ namespace LEDBit {
         }
         for (let i = 0; i < 16; i++) {
             matBuf[i + 1] = 0;
+        }
+        matrixShow();
+    }
+
+    //% blockId=ledbit_led_AllOn block="Matrix All On"
+    //% weight=92
+    //% blockGap=50
+    export function LEDAllOn(): void {
+        if (!initMatrix) {
+            matrixInit();
+            initMatrix = true;
+        }
+        for (let i = 0; i < 16; i++) {
+            matBuf[i + 1] = 0xff;
         }
         matrixShow();
     }
