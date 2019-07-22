@@ -28,7 +28,7 @@ namespace LEDBit {
         ON = 1
     }
 
-    //静态表情
+   
     export enum enExpression {
         //% blockId="FACE1" block="Smile"
         FACE1 = 0,
