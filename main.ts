@@ -229,9 +229,8 @@ namespace LEDBit {
         character_FACE20,
 
 
-        //% blockId="character_FACE25" block="char_Y"
-        character_FACE25,
-
+        //% blockId="character_FACE26" block="char_Z"
+        character_FACE26,
     }
 
     let A_show = pins.createBuffer(17);
@@ -255,7 +254,7 @@ namespace LEDBit {
     let S_show = pins.createBuffer(17);
     let T_show = pins.createBuffer(17);
 
-    let Y_show = pins.createBuffer(17);
+    let Z_show = pins.createBuffer(17);
 
 
 
@@ -283,7 +282,8 @@ namespace LEDBit {
     const T1_show: number[] = [0x0, 0xf, 0xe0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0, 0x1, 0x0];
 
 
-    const Y1_show: number[] = [0x0, 0x4, 0x10, 0x2, 0x20, 0x1, 0x40, 0x0, 0x80, 0x0, 0x80, 0x0, 0x80, 0x0, 0x80, 0x0, 0x80];
+    const Z1_show: number[] = [0x0, 0x1f, 0xe0, 0x8, 0x0, 0x4, 0x0, 0x2, 0x0, 0x1, 0x0, 0x0, 0x80, 0x0, 0x40, 0x1f, 0xe0];
+
 
 
 
@@ -508,16 +508,16 @@ namespace LEDBit {
                 break;
             }
 
-            case characterExpression.character_FACE25: {
-                Y_show[0] = Y1_show[0];
+
+            case characterExpression.character_FACE26: {
+                Z_show[0] = Z1_show[0];
                 for (let i = 1; i < 17; i += 2) {
-                    Y_show[i] = Y1_show[i + 1];
-                    Y_show[i + 1] = Y1_show[i];
+                    Z_show[i] = Z1_show[i + 1];
+                    Z_show[i + 1] = Z1_show[i];
                 }
-                pins.i2cWriteBuffer(HT16K33_ADDRESS, Y_show);
+                pins.i2cWriteBuffer(HT16K33_ADDRESS, Z_show);
                 break;
             }
-
 
 
 
