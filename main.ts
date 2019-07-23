@@ -1002,10 +1002,10 @@ namespace LEDBit {
         }
         
         if (on == enState.ON) {
-            row = 1 << (x - 1);
+            row |= 1 << (x - 1);
             matBuf[line] = row;
         } else {
-            row = 0 << (x - 1);
+            row &= 0 << (x - 1);
             matBuf[line] = row;
         }
 
