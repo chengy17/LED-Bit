@@ -988,7 +988,7 @@ namespace LEDBit {
         }
         
         let line = 1;
-        let row = 1;
+        let row = 0;
         x = x + 1;
         y = y + 1;
         if (x < 1) x = 1;
