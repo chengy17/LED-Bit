@@ -1023,7 +1023,7 @@ namespace LEDBit {
             matrixInit();
             initMatrix = true;
         }
-        let matBuf = pins.createBuffer(17);
+        
         for (let i = 0; i < 16; i++) {
             matBuf[i + 1] = 0;
         }
@@ -1039,7 +1039,7 @@ namespace LEDBit {
             matrixInit();
             initMatrix = true;
         }
-        let matBuf = pins.createBuffer(17);
+        
         for (let i = 0; i < 16; i++) {
             matBuf[i + 1] = 0xff;
         }
