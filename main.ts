@@ -1004,13 +1004,11 @@ namespace LEDBit {
         }
         row = matBuf[line];
         if (on == enState.ON) {
-            row |= 1 << (x - 1);
-            matBuf[line] = row;
+            row |= 1 << (x - 1);            
         } else {
-            row &= 0 << (x - 1);
-            matBuf[line] = row;
+            row &= ~(1 << (x - 1)); 
         }
-
+        matBuf[line] = row;
         matBuf[0] = 0x00;
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
