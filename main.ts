@@ -18,7 +18,7 @@ namespace LEDBit {
     const HT16K33_BLINK_HALFHZ = 3;
     const HT16K33_CMD_BRIGHTNESS = 0xE0;
 
-
+    let matBuf = pins.createBuffer(17);
     let initMatrix = false;
 
     export enum enState {
@@ -979,16 +979,18 @@ namespace LEDBit {
         }
     }
     //% blockId=ledbit_led_draw block="LED expression Draw|X %x|Y %y| %on"
-    //% x.min=1 x.max=16 x.defl=1 y.min=1 y.max=8 y.defl=1
+    //% x.min=0 x.max=15 y.min=0 y.max=7 
     //% weight=94
     export function LEDDraw(x: number, y: number, on: enState): void {
         if (!initMatrix) {
             matrixInit();
             initMatrix = true;
         }
-        let matBuf = pins.createBuffer(17);
+        
         let line = 1;
         let row = 1;
+        x = x + 1;
+        y = y + 1;
         if (x < 1) x = 1;
         if (x > 16) x = 16;
         if (y < 1) y = 1;
